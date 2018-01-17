@@ -1,0 +1,16 @@
+.Menu-container {
+  color: lightgray;
+  display: flex;
+  justify-content: center;
+}
+
+.limited-width {
+  padding: 8px 16px;
+  background-color: #434343;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  width: 100%;
+}

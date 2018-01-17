@@ -1,0 +1,8 @@
+.MenuItem-container {
+  cursor: pointer;
+}
+
+.MenuItem-container:hover {
+  cursor: pointer;
+  color: gray;
+}
