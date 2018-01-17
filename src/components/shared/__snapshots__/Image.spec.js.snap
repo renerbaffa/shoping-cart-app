@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Image /> should render correctly 1`] = `
+<img
+  alt="alt"
+  src="http://lorempixel.com/400/200/technics/"
+/>
+`;
