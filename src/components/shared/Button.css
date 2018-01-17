@@ -2,3 +2,7 @@
   background-color: white;
   padding: 0px 18px;
 }
+
+.Button-selected {
+  background-color: lightgray;
+}

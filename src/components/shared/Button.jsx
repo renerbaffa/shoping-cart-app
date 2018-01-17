@@ -9,8 +9,17 @@ import './Button.css';
   Imagine that in the future we move to react-bootstrap or material-ui
   In this case we only need to replase default button by the library button
 */
-const Button = ({ children, className, ...other }) => (
-  <button {...other} className={cx(className, 'Button')}>
+const Button = ({ children, className, selected, ...other }) => (
+  <button
+    {...other}
+    className={cx(
+      className,
+      {
+        'Button': true,
+        'Button-selected' : selected,
+      }
+    )}
+  >
     {children}
   </button>
 );
@@ -18,11 +27,13 @@ const Button = ({ children, className, ...other }) => (
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  selected: PropTypes.bool,
 };
 
 Button.defaultProps = {
   children: null,
   className: '',
+  selected: false,
 };
 
 export default Button;
