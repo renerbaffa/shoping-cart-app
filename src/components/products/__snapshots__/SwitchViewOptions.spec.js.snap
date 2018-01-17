@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SwitchViewOptions /> should render correctly 1`] = `
+<div
+  className="className"
+>
+  <button
+    className="SwitchViewOptions-button Button Button-selected"
+    onClick={[Function]}
+  >
+    Grid
+  </button>
+  <button
+    className="SwitchViewOptions-button Button"
+    onClick={[Function]}
+  >
+    List
+  </button>
+</div>
+`;
