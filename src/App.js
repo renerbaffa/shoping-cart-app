@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+
+import store from './store';
 
 import Menu from './components/template/Menu';
-import ProductsPage from './pages/ProductsPage';
+import ProductsContainer from './containers/ProductsContainer';
 
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Menu />
-        <ProductsPage />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Provider store={store}>
+    <div className="App">
+      <Menu />
+      <ProductsContainer />
+    </div>
+  </Provider>
+);
 
 export default App;
