@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SearchForm from '../components/products/SearchForm';
 import SwitchViewOptions from '../components/products/SwitchViewOptions';
+import ProductsList from '../components/products/ProductsList';
 
 import { GRID } from '../constants/ViewOptions';
 
@@ -20,11 +21,18 @@ class ProductsContainer extends Component {
     return (
       <div className="ProductsContainer-container">
         <div className="limited-width">
-          <SearchForm />
-          <SwitchViewOptions
-            currentView={currentView}
-            onSwitchView={this.handleSwitchView}
-          />
+          <div className="space-between">
+            <SearchForm />
+            <SwitchViewOptions
+              currentView={currentView}
+              onSwitchView={this.handleSwitchView}
+            />
+          </div>
+          <div className="ProductsContainer-content">
+            <ProductsList
+              currentView={currentView}
+            />
+          </div>
         </div>
       </div>
     );
