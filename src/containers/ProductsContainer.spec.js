@@ -1,14 +1,15 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
 
 import ConnectedProductsContainer, { ProductsContainer } from './ProductsContainer';
 
 import { GRID, LIST } from '../constants/ViewOptions';
 import { RETRIEVING, RETRIEVED } from '../constants/loadingStatus';
+
+jest.mock('../components/products/ProductsList', () => 'ProductsList');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
