@@ -1,0 +1,333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductsContainer /> should render correctly 1`] = `
+<div
+  className="ProductsContainer-container"
+>
+  <div
+    className="limited-width ProductsContainer-border"
+  >
+    <div
+      className="space-between"
+    >
+      <div>
+        <form
+          className="SearchForm-form"
+        >
+          <input
+            className="SearchForm-input"
+            onChange={[Function]}
+            placeholder="Search..."
+            type="text"
+            value=""
+          />
+          <button
+            className="SearchForm-button Button"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+      <div>
+        <button
+          className="SwitchViewOptions-button Button Button-selected"
+          onClick={[Function]}
+        >
+          Grid
+        </button>
+        <button
+          className="SwitchViewOptions-button Button"
+          onClick={[Function]}
+        >
+          List
+        </button>
+      </div>
+    </div>
+    <div
+      className="ProductsContainer-content"
+    >
+      <div>
+        <div
+          className="ProductsList-container"
+        >
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample really really big"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample really really big
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample really really big
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className="ProductCard-container"
+          >
+            <img
+              alt="Product name sample"
+              className="ProductCard-image"
+              src="http://lorempixel.com/400/200/technics/"
+            />
+            <div
+              className="ProductCard-name"
+            >
+              Product name sample
+            </div>
+            <div
+              className="ProductCard-description"
+            >
+              Product name sample
+            </div>
+            <button
+              className="ProductCard-button Button"
+              onClick={[Function]}
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
