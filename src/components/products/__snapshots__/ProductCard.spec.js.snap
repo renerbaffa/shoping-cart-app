@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductCard /> should render correctly 1`] = `
+<div
+  className="ProductCard-container className"
+>
+  <img
+    alt="Product name sample"
+    className="ProductCard-image"
+    src="http://lorempixel.com/400/200/technics/"
+  />
+  <div
+    className="ProductCard-name"
+  >
+    Product name sample
+  </div>
+  <div
+    className="ProductCard-description"
+  >
+    Product name sample
+  </div>
+  <button
+    className="ProductCard-button Button"
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;

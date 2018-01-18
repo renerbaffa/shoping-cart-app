@@ -1,0 +1,36 @@
+.ProductCard-container {
+  width: 180px;
+  border: 1px solid gray;
+  margin: 8px 0px;
+  position: relative;
+}
+
+.ProductCard-image {
+  width: calc(100% - 12px);
+  margin: 6px;
+}
+
+.ProductCard-name {
+  width: calc(100% - 12px);
+  margin: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ProductCard-description {
+  width: calc(100% - 12px);
+  margin: 6px;
+  font-size: 13px;
+  margin-bottom: 40px;
+}
+
+.ProductCard-button {
+  padding: 1px 4px;
+  border-radius: 50%;
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  background-color: #FF6D3E;
+  color: white;
+  cursor: pointer;
+}
