@@ -2,7 +2,7 @@ import ProductsSource from '../sources/products';
 
 import { FAILED, RETRIEVED, RETRIEVING } from '../constants/loadingStatus';
 
-export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const UPDATE_PRODUCTS = 'UPDATE_PRODUCTS';
 export const PRODUCTS_LOADING = 'PRODUCTS_LOADING';
 
 export function setAreProductsLoading(isLoading) {
@@ -14,13 +14,28 @@ export function setAreProductsLoading(isLoading) {
   };
 }
 
+export function updateProducts(products) {
+  return {
+    type: UPDATE_PRODUCTS,
+    meta: {
+      isLoading: RETRIEVED,
+    },
+    data: {
+      products,
+    },
+  };
+}
+
 export function fetchProducts() {
   return async (dispatch) => {
     try {
       dispatch(setAreProductsLoading(RETRIEVING));
-      const products = await ProductsSource.fetchProducts();
-      console.log('products', products);
-      dispatch(setAreProductsLoading(RETRIEVED));
+      const response = await ProductsSource.fetchProducts();
+      if (response.hasError) {
+        dispatch(setAreProductsLoading(FAILED));
+      } else {
+        dispatch(updateProducts(response.products));
+      }
     } catch (err) {
       dispatch(setAreProductsLoading(FAILED));
     }
