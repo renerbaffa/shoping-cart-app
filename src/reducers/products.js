@@ -1,6 +1,9 @@
 import { UPDATE_PRODUCTS } from '../actions/productsActions';
 
-export const INITIAL_STATE = [];
+export const INITIAL_STATE = {
+  ids: [],
+  content: {},
+};
 
 export default function products(state = INITIAL_STATE, action = {}) {
   switch(action.type) {
