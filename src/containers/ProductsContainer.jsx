@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 import SearchForm from '../components/products/SearchForm';
 import SwitchViewOptions from '../components/products/SwitchViewOptions';
@@ -20,7 +21,7 @@ class ProductsContainer extends Component {
 
     return (
       <div className="ProductsContainer-container">
-        <div className="limited-width">
+        <div className={cx('limited-width', 'ProductsContainer-border')}>
           <div className="space-between">
             <SearchForm />
             <SwitchViewOptions

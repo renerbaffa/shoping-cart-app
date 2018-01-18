@@ -2,3 +2,11 @@
   display: flex;
   justify-content: center;
 }
+
+.ProductsContainer-content {
+  margin-top: 18px;
+}
+
+.ProductsContainer-border {
+  border: 1px solid lightgray;
+}
