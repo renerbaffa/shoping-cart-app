@@ -1,5 +1,5 @@
 import { PRODUCTS_LOADING } from '../actions/productsActions';
-import { RETRIEVING, RETRIEVED } from '../constants/loadingStatus';
+import { FAILED, RETRIEVED } from '../constants/loadingStatus';
 
 import communication from './communication';
 
@@ -16,9 +16,18 @@ describe('communication', () => {
   });
 
   it('should set correct flag according to dispatched action meta', () => {
-    console.log('result', communication({}, ACTION));
     expect(communication({}, ACTION)).toEqual({
       areProjectsLoading: RETRIEVED,
     });
+  });
+
+  it('should retur current state when isLoading is not provided', () => {
+    const PREV_STATE = { areProjectsLoading: FAILED };
+    expect(
+      communication(
+        PREV_STATE,
+        { type: PRODUCTS_LOADING, meta: {} }
+      ),
+    ).toEqual(PREV_STATE);
   });
 });
