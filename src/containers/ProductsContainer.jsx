@@ -7,7 +7,7 @@ import SearchForm from '../components/products/SearchForm';
 import SwitchViewOptions from '../components/products/SwitchViewOptions';
 import ProductsList from '../components/products/ProductsList';
 
-import { fetchProjects } from '../actions/productsActions';
+import { fetchProducts } from '../actions/productsActions';
 
 import { GRID } from '../constants/ViewOptions';
 
@@ -15,7 +15,7 @@ import './ProductsContainer.css';
 
 export class ProductsContainer extends Component {
   static propTypes = {
-    onFetchProjects: PropTypes.func.isRequired,
+    onFetchProducts: PropTypes.func.isRequired,
   };
 
   state = {
@@ -23,10 +23,10 @@ export class ProductsContainer extends Component {
   };
   
   componentDidMount() {
-    this.props.onFetchProjects();
+    this.props.onFetchProducts();
   }
 
-  handleSwitchViewChange = newView => this.setState({ currentView: newView });
+  handleSwitchView = newView => this.setState({ currentView: newView });
 
   render() {
     const { currentView } = this.state;
@@ -38,7 +38,7 @@ export class ProductsContainer extends Component {
             <SearchForm />
             <SwitchViewOptions
               currentView={currentView}
-              onSwitchView={this.handleSwitchViewChange}
+              onSwitchView={this.handleSwitchView}
             />
           </div>
           <div className="ProductsContainer-content">
@@ -53,8 +53,8 @@ export class ProductsContainer extends Component {
 }
 
 export default connect(
-  null,
+  (state) => (state),
   {
-    onFetchProjects: fetchProjects,
+    onFetchProducts: fetchProducts,
   }
 )(ProductsContainer);
