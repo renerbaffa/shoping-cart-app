@@ -1,6 +1,6 @@
 .ProductCard-container {
   width: 180px;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   margin: 8px 0px;
   position: relative;
 }

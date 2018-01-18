@@ -7,7 +7,7 @@ import './Menu.css';
 
 const Menu = () => (
   <div className="Menu-container">
-    <div className={cx('limited-width', 'gray-background', 'space-between')}>
+    <div className={cx('limited-width', 'gray-background', 'space-between', 'Menu-height')}>
       <MenuItem label="Home" />
       <MenuItem label="Top-5 Products" />
       <MenuItem label="Your Cart" />

@@ -3,3 +3,8 @@
   display: flex;
   justify-content: center;
 }
+
+.Menu-height {
+  height: 36px;
+  border: 1px solid #434343;
+}
