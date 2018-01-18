@@ -1,0 +1,5 @@
+.Loader-container {
+  position: absolute;
+  margin-top: 70px;
+  z-index: 1;
+}
