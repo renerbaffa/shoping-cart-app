@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Image from '../shared/Image';
 import Spinner from 'react-loader-spinner'
 
 import './Loader.css';
