@@ -70,7 +70,7 @@ describe('productsAction', () => {
     });
 
     it('should return products as payload data', () => {
-      expect(updateProducts(PRODUCTS_MOCK).data.products)
+      expect(updateProducts(PRODUCTS_MOCK).payload.products)
         .toEqual(PRODUCTS_MOCK);
     });
   });

@@ -20,7 +20,7 @@ export function updateProducts(products) {
     meta: {
       isLoading: RETRIEVED,
     },
-    data: {
+    payload: {
       products,
     },
   };

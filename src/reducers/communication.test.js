@@ -10,7 +10,7 @@ const ACTION = {
   },
 };
 
-describe('communication', () => {
+describe('communication reducer', () => {
   it('should set empty object as initial state', () => {
     expect(communication()).toEqual({});
   });
