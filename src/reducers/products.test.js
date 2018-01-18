@@ -1,29 +1,15 @@
-import products, { INITIAL_STATE } from './products';
 import { UPDATE_PRODUCTS } from '../actions/productsActions';
+import convertToIdsAndContent from '../normalizers/productsNormalize';
 
-const PRODUCTS_MOCK = [
-  {
-    description: 'description 1',
-    image: 'http://lorempixel.com/400/200/technics/',
-    name: 'Chef Anton Cajun Seasoning',
-    productID: 4,
-    unitPrice: 22,
-    unitsInStock: 53,
-  },
-  {
-    description: 'description 2',
-    image: 'http://lorempixel.com/400/200/technics/',
-    name: '"Guaraná Fantástica"',
-    productID: 24,
-    unitPrice: 4.5,
-    unitsInStock: 20,
-  },
-];
+import products, { INITIAL_STATE } from './products';
 
+import PRODUCTS from '../mocks/Products';
+
+const NORMALIZED_PRODUCTS = convertToIdsAndContent(PRODUCTS);
 const ACTION = {
   type: UPDATE_PRODUCTS,
   payload: {
-    products: PRODUCTS_MOCK,
+    products: NORMALIZED_PRODUCTS,
   },
 };
 
@@ -33,6 +19,6 @@ describe('prodcts reducer', () => {
   });
 
   it('should add products on state', () => {
-    expect(products([], ACTION)).toEqual(PRODUCTS_MOCK);
+    expect(products([], ACTION)).toEqual(NORMALIZED_PRODUCTS);
   });
 });

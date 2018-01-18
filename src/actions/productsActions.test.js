@@ -15,27 +15,10 @@ import {
 
 import { FAILED, RETRIEVED, RETRIEVING } from '../constants/loadingStatus';
 
+import PRODUCTS from '../mocks/Products';
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-
-const PRODUCTS_MOCK = [
-  {
-    description: 'description 1',
-    image: 'http://lorempixel.com/400/200/technics/',
-    name: 'Chef Anton Cajun Seasoning',
-    productID: 4,
-    unitPrice: 22,
-    unitsInStock: 53,
-  },
-  {
-    description: 'description 2',
-    image: 'http://lorempixel.com/400/200/technics/',
-    name: '"Guaraná Fantástica"',
-    productID: 24,
-    unitPrice: 4.5,
-    unitsInStock: 20,
-  },
-];
 
 describe('productsAction', () => {
   const LOADING_ACTION = {
@@ -70,8 +53,8 @@ describe('productsAction', () => {
     });
 
     it('should return products as payload data', () => {
-      expect(updateProducts(PRODUCTS_MOCK).payload.products)
-        .toEqual(PRODUCTS_MOCK);
+      expect(updateProducts(PRODUCTS).payload.products)
+        .toEqual(PRODUCTS);
     });
   });
   
@@ -87,7 +70,7 @@ describe('productsAction', () => {
       LOADING_ACTION.meta.isLoading = RETRIEVING;
 
       mock.onGet(FETCH_PRODUCTS_URL)
-        .reply(200, { products: PRODUCTS_MOCK });
+        .reply(200, { products: PRODUCTS });
   
       return store.dispatch(fetchProducts()).then(() => {
         expect(store.getActions()[0]).toEqual(LOADING_ACTION);
@@ -98,7 +81,7 @@ describe('productsAction', () => {
       const store = mockStore({});
 
       mock.onGet(FETCH_PRODUCTS_URL)
-        .reply(200, { products: PRODUCTS_MOCK });
+        .reply(200, { products: PRODUCTS });
   
       return store.dispatch(fetchProducts()).then(() => {
         expect(store.getActions()[store.getActions().length - 1].meta.isLoading)
