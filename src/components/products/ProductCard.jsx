@@ -34,10 +34,10 @@ ProductCard.propTypes = {
 };
 
 ProductCard.defaultProps = {
-  className: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  name: PropTypes.string,
+  className: '',
+  description: '',
+  image: '',
+  name: '',
   onAddProduct: () => {},
 };
 
