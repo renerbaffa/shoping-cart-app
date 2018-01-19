@@ -5,9 +5,9 @@ import cx from 'classnames';
 import './MenuItem.css';
 
 const MenuItem = ({ className, label }) => (
-  <a className={cx('MenuItem-container', className)}>
+  <div className={cx('MenuItem-container', className)}>
     {label}
-  </a>
+  </div>
 );
 
 MenuItem.propTypes = {
