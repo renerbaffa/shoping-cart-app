@@ -6,6 +6,8 @@ import thunk from 'redux-thunk';
 
 import ConnectedProductsContainer, { ProductsContainer } from './ProductsContainer';
 
+import SearchForm from '../components/products/SearchForm';
+
 import { GRID, LIST } from '../constants/ViewOptions';
 import { RETRIEVING, RETRIEVED } from '../constants/loadingStatus';
 
@@ -46,6 +48,15 @@ describe('<ProductsContainer />', () => {
     expect(wrapper.state().currentView).toBe(LIST);
   });
 
+  it('should update state when text changes', () => {
+    const newText = 'New text';
+    expect(wrapper.state().searchText).toBe('');
+    wrapper.find(SearchForm).props().onSearchTextChange({
+      target: { value: newText },
+    });
+    expect(wrapper.state().searchText).toBe(newText);
+  });
+
   describe('on component connect to redux isLoading flag', () => {
     it('should set isLoading as false when flag is not RETRIEVING', () => {
       const store = mockStore({
@@ -78,4 +89,3 @@ describe('<ProductsContainer />', () => {
     });
   });
 });
-

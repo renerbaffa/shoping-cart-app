@@ -11,6 +11,9 @@ import ConnectedProductsList, { ProductsList } from './ProductsList';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
+jest.mock('./ProductCard', () => 'ProductCard');
+jest.mock('./ProductItem', () => 'ProductItem');
+
 describe('<ProductsList />', () => {
   let productsList;
 

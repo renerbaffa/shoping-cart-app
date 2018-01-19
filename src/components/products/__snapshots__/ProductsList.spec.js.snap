@@ -5,58 +5,12 @@ exports[`<ProductsList /> should render correctly on GRID view 1`] = `
   <div
     className="ProductsList-container"
   >
-    <div
-      className="ProductCard-container"
+    <ProductCard
       productId={1}
-    >
-      <img
-        alt=""
-        className="ProductCard-image"
-        src=""
-      />
-      <div
-        className="ProductCard-name"
-      >
-        
-      </div>
-      <div
-        className="ProductCard-description"
-      >
-        
-      </div>
-      <button
-        className="ProductCard-button Button"
-        onClick={[Function]}
-      >
-        +
-      </button>
-    </div>
-    <div
-      className="ProductCard-container"
+    />
+    <ProductCard
       productId={2}
-    >
-      <img
-        alt=""
-        className="ProductCard-image"
-        src=""
-      />
-      <div
-        className="ProductCard-name"
-      >
-        
-      </div>
-      <div
-        className="ProductCard-description"
-      >
-        
-      </div>
-      <button
-        className="ProductCard-button Button"
-        onClick={[Function]}
-      >
-        +
-      </button>
-    </div>
+    />
   </div>
 </div>
 `;
@@ -66,12 +20,14 @@ exports[`<ProductsList /> should render correctly on LIST view 1`] = `
   <div
     className="ProductsList-container"
   >
-    <div>
-      ProductItem
-    </div>
-    <div>
-      ProductItem
-    </div>
+    <ProductItem
+      index={0}
+      productId={1}
+    />
+    <ProductItem
+      index={1}
+      productId={2}
+    />
   </div>
 </div>
 `;
