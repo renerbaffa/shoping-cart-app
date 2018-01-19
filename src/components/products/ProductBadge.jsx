@@ -18,6 +18,13 @@ ProductBadge.defaultProps = {
   quantity: 0,
 };
 
+export function mapStateToProps({ cart }) {
+  const quantity = cart.ids.reduce(((accumulator, productId) => (
+    accumulator + cart.content[productId].quantity
+  )), 0);
+  return ({ quantity });
+}
+
 export default connect(
-  ({ cart }) => ({ quantity: 0 }),
+  mapStateToProps,
 )(ProductBadge);
