@@ -5,7 +5,7 @@ const PRODUCTS = [
     name: 'Chef Anton Cajun Seasoning',
     productID: 4,
     unitPrice: 22,
-    unitsInStock: 53,
+    unitsInStock: 0,
   },
   {
     description: 'description 2',

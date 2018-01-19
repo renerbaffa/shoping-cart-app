@@ -1,24 +1,73 @@
 import { UPDATE_PRODUCTS } from '../actions/productsActions';
+import { ADD_TO_CART } from '../actions/cartActions';
 import convertToIdsAndContent from '../normalizers/productsNormalize';
 
-import products, { INITIAL_STATE } from './products';
+import products, { INITIAL_STATE, removeItemFromStock } from './products';
 
 import PRODUCTS from '../mocks/Products';
 
 const NORMALIZED_PRODUCTS = convertToIdsAndContent(PRODUCTS);
-const ACTION = {
-  type: UPDATE_PRODUCTS,
-  payload: {
-    products: NORMALIZED_PRODUCTS,
-  },
-};
 
 describe('prodcts reducer', () => {
-  it('should set empty array as default state', () => {
-    expect(products()).toEqual(INITIAL_STATE);
+  describe('given UPDATE_PRODUCTS action', () => {
+    const UPDATE_PRODUCTS_ACTION = {
+      type: UPDATE_PRODUCTS,
+      payload: {
+        products: NORMALIZED_PRODUCTS,
+      },
+    };
+
+    it('should set empty array as default state', () => {
+      expect(products()).toEqual(INITIAL_STATE);
+    });
+  
+    it('should add products on state', () => {
+      expect(products([], UPDATE_PRODUCTS_ACTION)).toEqual(NORMALIZED_PRODUCTS);
+    });
   });
 
-  it('should add products on state', () => {
-    expect(products([], ACTION)).toEqual(NORMALIZED_PRODUCTS);
+  describe('removeItemFromStock', () => {
+    it('should remove item from stock', () => {
+      expect(
+        removeItemFromStock(
+          NORMALIZED_PRODUCTS,
+          {
+            id: PRODUCTS[1].productID,
+            data: PRODUCTS[1],
+          },
+        ).content[PRODUCTS[1].productID].unitsInStock,
+      ).toBe(PRODUCTS[1].unitsInStock - 1);
+    });
+
+    it('should not remove item from stock when its quantity is 0', () => {
+      expect(
+        removeItemFromStock(
+          NORMALIZED_PRODUCTS,
+          {
+            id: PRODUCTS[0].productID,
+            data: PRODUCTS[0],
+          },
+        ).content[PRODUCTS[0].productID].unitsInStock,
+      ).toBe(0);
+    });
+  });
+
+  describe('given ADD_TO_CART action', () => {
+    const ADD_TO_CART_ACTION = {
+      type: ADD_TO_CART,
+      payload: {
+        id: PRODUCTS[1].productID,
+        data: PRODUCTS[1],
+      },
+    };
+
+    it('should update quantity of products in stock', () => {
+      expect(
+        products(
+          NORMALIZED_PRODUCTS,
+          ADD_TO_CART_ACTION,
+        ).content[PRODUCTS[1].productID].unitsInStock,
+      ).toBe(PRODUCTS[1].unitsInStock - 1);
+    });
   });
 });

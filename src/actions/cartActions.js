@@ -35,7 +35,10 @@ export function addProductToCart(productId) {
     dispatch(
       addToCart(
         sumProductQuantity(
-          itemInCart || getState().products.content[productId]
+          {
+            ...getState().products.content[productId],
+            quantity: itemInCart && itemInCart.quantity,
+          }
         ),
       ),
     );
