@@ -11,6 +11,7 @@ import {
 
 import PRODUCTS from '../mocks/Products';
 import convertToIdsAndContent from '../normalizers/productsNormalize';
+import ITEMIZED_CART from '../mocks/Cart';
 
 const NORMALIZED_PRODUCTS = convertToIdsAndContent(PRODUCTS);
 const middlewares = [thunk];
@@ -69,6 +70,26 @@ describe('cartActions', () => {
           data: {
             ...product,
             quantity: 1,
+          }
+        }
+      });
+    });
+
+    it('should sum up the amount of items when present in cart already', () => {
+      const product = PRODUCTS[1];
+      const store = mockStore({
+        ...INITIAL_STORE,
+        cart: ITEMIZED_CART,
+      });
+  
+      store.dispatch(addProductToCart(product.productID));
+      expect(store.getActions()[0]).toEqual({
+        type: ADD_TO_CART,
+        payload: {
+          id: product.productID,
+          data: {
+            ...ITEMIZED_CART.content[product.productID],
+            quantity: 5,
           }
         }
       });

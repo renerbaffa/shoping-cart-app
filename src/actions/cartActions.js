@@ -30,10 +30,12 @@ export function sumProductQuantity(product) {
 
 export function addProductToCart(productId) {
   return (dispatch, getState) => {
+    const itemInCart = getState().cart.content[productId];
+
     dispatch(
       addToCart(
         sumProductQuantity(
-          getState().products.content[productId],
+          itemInCart || getState().products.content[productId]
         ),
       ),
     );
