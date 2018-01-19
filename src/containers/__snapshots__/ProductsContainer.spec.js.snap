@@ -7,6 +7,9 @@ exports[`<ProductsContainer /> should render correctly 1`] = `
   <div
     className="limited-width ProductsContainer-border"
   >
+    <h2>
+      Products
+    </h2>
     <div
       className="space-between"
     >

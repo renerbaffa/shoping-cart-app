@@ -1,0 +1,8 @@
+.MyCartContainer-container {
+  display: flex;
+  justify-content: center;
+}
+
+.MyCartContainer-border {
+  border: 1px solid lightgray;
+}
