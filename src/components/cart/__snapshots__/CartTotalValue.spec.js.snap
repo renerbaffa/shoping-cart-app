@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CartTotalValue /> should render correctly 1`] = `
+<div
+  className="CartTotalValue-line"
+>
+  <div
+    className="CartTotalValue-container"
+  >
+    <b>
+      Total
+    </b>
+    <b>
+      $ 
+      123.3
+    </b>
+  </div>
+</div>
+`;

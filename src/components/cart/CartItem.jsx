@@ -13,6 +13,7 @@ export const CartItem = ({
   description,
   image,
   index,
+  isLastItem,
   name,
   onAddProduct,
   quantity,
@@ -23,7 +24,10 @@ export const CartItem = ({
   <div className={cx(
     className,
     'CartItem-container',
-    { 'CartItem-container-odd' : index % 2 }
+    {
+      'CartItem-container-odd' : index % 2,
+      'CartItem-container-last-item' : isLastItem,
+    }
   )}>
     <Image
       className="CartItem-image"
@@ -48,6 +52,7 @@ CartItem.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   index: PropTypes.number,
+  isLastItem: PropTypes.bool,
   name: PropTypes.string,
   onAddProduct: PropTypes.func,
   quantity: PropTypes.number,
@@ -60,6 +65,7 @@ CartItem.defaultProps = {
   description: '',
   image: '',
   index: 0,
+  isLastItem: false,
   name: '',
   onAddProduct: () => {},
   quantity: 0,

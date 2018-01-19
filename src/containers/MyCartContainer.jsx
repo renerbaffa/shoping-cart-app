@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CartItem from '../components/cart/CartItem';
+import CartTotalValue from '../components/cart/CartTotalValue';
 
 import './MyCartContainer.css';
 
@@ -23,10 +24,12 @@ export const MyCartContainer = ({ productsInCart }) => (
               <CartItem
                 index={index}
                 isInCart
+                isLastItem={index === productsInCart.length - 1}
                 key={`CartItem-${productId}`}
                 productId={productId}
               />
             )}
+            <CartTotalValue />
           </div>
       }
     </div>

@@ -6,7 +6,7 @@
   border-right: 1px solid lightgray;
 }
 
-.MycartContainer-list .CartItem-container:last-child {
+.CartItem-container-last-item {
   border-bottom: 1px solid lightgray;
 }
 
