@@ -22,3 +22,22 @@ export function update(state = INITIAL_STATE, payload = {}) {
 
   return state;
 }
+
+export function remove(state = INITIAL_STATE, payload = {}) {
+  const id = payload.id;
+
+  if (!id) {
+    return state;
+  }
+
+  const { ids, content } = state;
+  const newIds = ids.filter(itemId => itemId !== id);
+
+  return {
+    ids: newIds,
+    content: newIds.reduce((prev, key) => ({
+      ...prev,
+      [key]: content[key],
+    }), {}),
+  };
+}
