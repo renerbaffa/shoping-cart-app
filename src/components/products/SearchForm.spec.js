@@ -32,7 +32,7 @@ describe('<SearchForm />', () => {
   it('should call onFilter when clicking on search button', () => {
     wrapper.find(Input).props().onChange({ target: { value: NEW_TEXT }});
     expect(onFilter).not.toHaveBeenCalled();
-    wrapper.find(Button).simulate('click');
+    wrapper.find('form').props().onSubmit({ preventDefault: () =>{} });
     expect(onFilter).toHaveBeenCalledWith(NEW_TEXT);
   });
 

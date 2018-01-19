@@ -7,6 +7,8 @@ import ProductItem from './ProductItem';
 
 import { GRID, LIST } from '../../constants/ViewOptions';
 
+import { filterByText } from '../../utils/functions';
+
 import './ProductsList.css';
 
 export const ProductsList = ({ currentView, productIds }) => (
@@ -30,13 +32,21 @@ export const ProductsList = ({ currentView, productIds }) => (
 
 ProductsList.propTypes = {
   currentView: PropTypes.oneOf([GRID, LIST]),
+  filterText: PropTypes.string,
   productIds: PropTypes.arrayOf(PropTypes.number),
 };
 
 ProductsList.defaultProps = {
   currentView: GRID,
+  filterText: '',
 };
 
+export function mapStateToProps({ products }, { filterText }) {
+  const filteredProducts = filterByText(products, filterText);
+
+  return ({ productIds: filteredProducts.ids });
+}
+
 export default connect(
-  ({ products }) => ({ productIds: products.ids }),
+  mapStateToProps,
 )(ProductsList);

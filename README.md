@@ -7,13 +7,17 @@ npm install
 npm start
 ```
 
+To check test coverage:
+```
+npm test -- --converage
+```
+
 ## Features developed
 - [X] Styles
 - [X] View the list of products available
 	- with user feedback
-- [  ] Switch between list view and grid view
-- [  ] Search product (from both views)
-	- with debounce and user feedback
+- [X] Switch between list view and grid view
+- [X] Search product (from both views)
 - [  ] Add product to cart
 - [  ] Navigate between pages
 - [  ] View the products in the cart

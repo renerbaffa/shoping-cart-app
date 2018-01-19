@@ -22,14 +22,17 @@ class SearchForm extends Component {
   handleSearchTextChange = event =>
     this.setState({ searchText: event.target.value });
 
-  handleFilter = () => this.props.onFilter(this.state.searchText);
+  handleFilter = (event) => {
+    event.preventDefault();
+    this.props.onFilter(this.state.searchText);
+  }
 
   render() {
     const { searchText } = this.state;
 
     return (
       <div>
-        <form className="SearchForm-form">
+        <form className="SearchForm-form" onSubmit={this.handleFilter}>
           <Input
             className="SearchForm-input"
             onChange={this.handleSearchTextChange}
@@ -37,10 +40,7 @@ class SearchForm extends Component {
             type="text"
             value={searchText}
           />
-          <Button
-            className="SearchForm-button"
-            onClick={this.handleFilter}
-          >
+          <Button className="SearchForm-button">
             Search
           </Button>
         </form>
