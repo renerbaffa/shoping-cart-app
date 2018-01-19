@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './ProductBadge.css';
 
@@ -17,4 +18,6 @@ ProductBadge.defaultProps = {
   quantity: 0,
 };
 
-export default ProductBadge;
+export default connect(
+  ({ cart }) => ({ quantity: 0 }),
+)(ProductBadge);
