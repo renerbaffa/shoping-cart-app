@@ -19,7 +19,7 @@ npm test -- --converage
 - [X] Switch between list view and grid view
 - [X] Search product (from both views)
 - [X] Add product to cart
-- [  ] Handling item quantity
+- [X] Handling item quantity
 	- block user to add an item not in stock
 	- decrease quantity of items in stock when adding
 - [X] Navigate between pages
