@@ -23,9 +23,9 @@ npm test -- --converage
 	- block user to add an item not in stock
 	- decrease quantity of items in stock when adding
 - [X] Navigate between pages
-- [  ] View the products in the cart
+- [X] View the products in the cart
 - [  ] Manage quantity of each product on cart
-- [  ] Calculates the total price
+- [X] Calculates the total price
 - [  ] Top-5 viewed sopping cart
 
 ## Development details
