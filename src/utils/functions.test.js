@@ -4,7 +4,7 @@ import PROJECTS from '../mocks/Products';
 import convertToIdsAndContent from '../normalizers/productsNormalize';
 
 const NORMALIZED_PROJECTS = convertToIdsAndContent(PROJECTS);
-const FILTER = 'Fant';
+const FILTER = 'FANT';
 
 describe('filterByField', () => {
   let filtered;
@@ -36,6 +36,10 @@ describe('filterByField', () => {
       });
 
       it('should return filtered data', () => {
+        expect(filtered.ids).toHaveLength(1);
+      });
+
+      it('should return filtered data not considering camel case', () => {
         expect(filtered.ids).toHaveLength(1);
       });
     });
