@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CartItem /> should render correctly 1`] = `
+<div
+  className="className CartItem-container"
+>
+  <img
+    alt="Product Name"
+    className="CartItem-image"
+    src="image"
+  />
+  <div
+    className="CartItem-description-container"
+  >
+    <div
+      className="CartItem-name"
+    >
+      Product Name
+    </div>
+    <div
+      className="CartItem-description"
+    >
+      description
+    </div>
+  </div>
+  <div
+    className="CartItem-price"
+  >
+    Price: 
+    <b>
+      $
+      29.3
+    </b>
+  </div>
+  <div
+    className="CartItem-quantity"
+  >
+    Quantity: 
+    <b>
+      0
+    </b>
+  </div>
+  <div
+    className="CartItem-stock"
+  >
+    <b
+      style={
+        Object {
+          "paddingRight": 3,
+        }
+      }
+    >
+      12
+    </b>
+     in stock
+  </div>
+</div>
+`;

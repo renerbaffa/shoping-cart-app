@@ -7,72 +7,64 @@ import withProduct from '../../HOCs/withProduct';
 import Image from '../shared/Image';
 import Button from '../shared/Button';
 
-import './ProductItem.css';
+import './CartItem.css';
 
-export const ProductItem = ({
+export const CartItem = ({
   className,
   description,
   image,
   index,
   name,
   onAddProduct,
+  quantity,
   unitPrice,
   unitsInStock,
   ...other
 }) => (
   <div className={cx(
     className,
-    'ProductItem-container',
-    { 'ProductItem-container-odd' : index % 2 }
+    'CartItem-container',
+    { 'CartItem-container-odd' : index % 2 }
   )}>
     <Image
-      className="ProductItem-image"
+      className="CartItem-image"
       alt={name}
       src={image}
     />
-    <div className="ProductItem-description-container">
-      <div className="ProductItem-name">{name}</div>
-      <div className="ProductItem-description">{description}</div>
+    <div className="CartItem-description-container">
+      <div className="CartItem-name">{name}</div>
+      <div className="CartItem-description">{description}</div>
     </div>
-    <div className="ProductItem-description-container2">
-      <div>Price: <b>${unitPrice}</b></div>
-      <div><b>{unitsInStock}</b> in stock</div>
-    </div>
-    <div className="ProductItem-bottom">
-      {
-        unitsInStock > 0 ?
-            <Button
-              className="ProductItem-button"
-              onClick={onAddProduct}
-            >
-              +
-            </Button> :
-          null
-        }
+    <div className="CartItem-price">Price: <b>${unitPrice}</b></div>
+    <div className="CartItem-quantity">Quantity: <b>{quantity}</b></div>
+    <div className="CartItem-stock">
+      <b style={{ paddingRight: 3 }}>{unitsInStock}</b> in stock
     </div>
   </div>
 );
 
-ProductItem.propTypes = {
+CartItem.propTypes = {
   className: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   index: PropTypes.number,
   name: PropTypes.string,
   onAddProduct: PropTypes.func,
+  quantity: PropTypes.number,
   unitPrice: PropTypes.number,
   unitsInStock: PropTypes.number,
 }
 
-ProductItem.defaultProps = {
+CartItem.defaultProps = {
   className: '',
   description: '',
   image: '',
   index: 0,
   name: '',
   onAddProduct: () => {},
+  quantity: 0,
   unitPrice: 0,
   unitsInStock: 0,
 }
 
-export default withProduct(ProductItem);
+export default withProduct(CartItem);
