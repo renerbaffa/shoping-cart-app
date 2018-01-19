@@ -6,24 +6,12 @@ import { addProductToCart } from '../actions/cartActions';
 
 function withProduct(WrappedComponent) {
   const WithProduct = ({ product, onAddProduct, ...other }) => {
-    const {
-      description,
-      image,
-      name,
-      unitPrice,
-      unitsInStock,
-    } = product;
-
     const handleAddProduct = () =>
       onAddProduct(product.productID);
 
     return (
       <WrappedComponent
-        description={description}
-        image={image}
-        name={name}
-        unitPrice={unitPrice}
-        unitsInStock={unitsInStock}
+        {...product}
         onAddProduct={handleAddProduct}
         {...other}
       />
@@ -31,6 +19,7 @@ function withProduct(WrappedComponent) {
   };
 
   WithProduct.propTypes = {
+    isInCart: PropTypes.bool,
     product: PropTypes.shape({
       description: PropTypes.string,
       image: PropTypes.string,
@@ -42,13 +31,21 @@ function withProduct(WrappedComponent) {
   }
 
   WithProduct.defaultProps = {
+    isInCart: false,
     product: {},
     onAddProduct: () => {},
   }
 
   return connect(
-    ({ products }, { productId }) =>
-      ({ product: products.content[productId] }),
+    ({ products, cart }, { productId, isInCart }) => {
+      let product = products.content[productId];
+
+      if (isInCart) {
+        product = cart.content[productId];
+      }
+
+      return { product };
+    },
     {
       onAddProduct: addProductToCart,
     }

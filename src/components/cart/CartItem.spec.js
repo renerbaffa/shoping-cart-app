@@ -15,6 +15,7 @@ describe('<CartItem />', () => {
         index={0}
         name="Product Name"
         onAddProduct={() => {}}
+        quantity={3}
         unitPrice={3}
         unitPrice={29.30}
         unitsInStock={12}

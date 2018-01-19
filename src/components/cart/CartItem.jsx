@@ -5,7 +5,6 @@ import cx from 'classnames';
 import withProduct from '../../HOCs/withProduct';
 
 import Image from '../shared/Image';
-import Button from '../shared/Button';
 
 import './CartItem.css';
 
@@ -31,14 +30,15 @@ export const CartItem = ({
       alt={name}
       src={image}
     />
-    <div className="CartItem-description-container">
-      <div className="CartItem-name">{name}</div>
-      <div className="CartItem-description">{description}</div>
-    </div>
+    <div className="CartItem-name">{name}</div>
     <div className="CartItem-price">Price: <b>${unitPrice}</b></div>
     <div className="CartItem-quantity">Quantity: <b>{quantity}</b></div>
     <div className="CartItem-stock">
       <b style={{ paddingRight: 3 }}>{unitsInStock}</b> in stock
+    </div>
+    <div className="CartItem-total">
+      <b>Total</b>
+      <b>$ {quantity * unitPrice}</b>
     </div>
   </div>
 );

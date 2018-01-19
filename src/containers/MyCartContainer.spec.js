@@ -24,13 +24,13 @@ describe('<MyCartContainer />', () => {
   });
   
   it('should not render empty cart message when cart has products', () => {
-    wrapper.setProps({ productsInCart: 23 });
+    wrapper.setProps({ productsInCart: CART.ids });
     expect(wrapper.find('.MyCartContainer-empty')).toHaveLength(0);
   });
 
   it('should inject corret quantity of products', () => {
     const store = mockStore({ cart: CART });
     wrapper = shallow(<ConnectedMyCartContainer store={store} />);
-    expect(wrapper.props().productsInCart).toBe(2);
+    expect(wrapper.props().productsInCart).toHaveLength(2);
   });
 });

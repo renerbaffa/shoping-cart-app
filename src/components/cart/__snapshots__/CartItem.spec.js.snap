@@ -10,18 +10,9 @@ exports[`<CartItem /> should render correctly 1`] = `
     src="image"
   />
   <div
-    className="CartItem-description-container"
+    className="CartItem-name"
   >
-    <div
-      className="CartItem-name"
-    >
-      Product Name
-    </div>
-    <div
-      className="CartItem-description"
-    >
-      description
-    </div>
+    Product Name
   </div>
   <div
     className="CartItem-price"
@@ -37,7 +28,7 @@ exports[`<CartItem /> should render correctly 1`] = `
   >
     Quantity: 
     <b>
-      0
+      3
     </b>
   </div>
   <div
@@ -53,6 +44,17 @@ exports[`<CartItem /> should render correctly 1`] = `
       12
     </b>
      in stock
+  </div>
+  <div
+    className="CartItem-total"
+  >
+    <b>
+      Total
+    </b>
+    <b>
+      $ 
+      87.9
+    </b>
   </div>
 </div>
 `;
