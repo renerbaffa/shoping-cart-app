@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchForm /> should render correctly 1`] = `
+<div>
+  <form
+    className="SearchForm-form"
+  >
+    <input
+      className="SearchForm-input"
+      onChange={[Function]}
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+    <button
+      className="SearchForm-button Button"
+    >
+      Search
+    </button>
+  </form>
+</div>
+`;
