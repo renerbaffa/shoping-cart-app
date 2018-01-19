@@ -1,0 +1,6 @@
+.NotFound-container {
+  display: flex;
+  justify-content: center;
+  font-size: 26px;
+  padding-top: 12px;
+}
