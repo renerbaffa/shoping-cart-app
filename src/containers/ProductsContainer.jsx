@@ -48,6 +48,7 @@ export class ProductsContainer extends Component {
       <div className="ProductsContainer-container">
         <Loader show={isLoading} />
         <div className={cx('limited-width', 'ProductsContainer-border')}>
+          <h2>Products</h2>
           <div className="space-between">
             <SearchForm
               onFilter={this.onFilter}
@@ -58,10 +59,14 @@ export class ProductsContainer extends Component {
             />
           </div>
           <div className="ProductsContainer-content">
-            <ProductsList
-              filterText={filterText}
-              currentView={currentView}
-            />
+            {
+              !isLoading ?
+                <ProductsList
+                  filterText={filterText}
+                  currentView={currentView}
+                /> :
+                <div className="ProductsContainer-empty" />
+            }
           </div>
         </div>
       </div>

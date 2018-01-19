@@ -10,3 +10,7 @@
 .ProductsContainer-border {
   border: 1px solid lightgray;
 }
+
+.ProductsContainer-empty {
+  height: 80px;
+}

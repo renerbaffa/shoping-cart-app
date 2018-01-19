@@ -55,6 +55,11 @@ describe('<ProductsContainer />', () => {
     expect(wrapper.state().filterText).toBe(newText);
   });
 
+  it('should render empty div for size purpose when is loading', () => {
+    wrapper.setProps({ isLoading: true });
+    expect(wrapper.find('.ProductsContainer-empty')).toHaveLength(1);
+  });
+
   describe('on component connect to redux isLoading flag', () => {
     it('should set isLoading as false when flag is not RETRIEVING', () => {
       const store = mockStore({
