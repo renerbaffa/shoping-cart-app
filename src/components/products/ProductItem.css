@@ -6,6 +6,10 @@
   border-right: 1px solid lightgray;
 }
 
+.ProductsList-container .ProductItem-container:last-child {
+  border-bottom: 1px solid lightgray;
+}
+
 .ProductItem-container-odd {
   background-color: #f2f2f2;
 }
