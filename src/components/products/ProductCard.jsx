@@ -2,13 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import withProduct from '../../HOCs/withProduct';
+
 import Button from '../shared/Button';
 import Image from '../shared/Image';
 
 import './ProductCard.css';
 
-const ProductCard = ({ className, description, image, name, onAddProduct, ...other }) => (
-  <div className={cx('ProductCard-container', className)} {...other}>
+export const ProductCard = ({
+  className,
+  description,
+  image,
+  name,
+  onAddProduct,
+  unitPrice,
+  unitsInStock,
+  ...other
+}) => (
+  <div className={cx('ProductCard-container', className)}>
     <Image
       className="ProductCard-image"
       alt={name}
@@ -16,12 +27,16 @@ const ProductCard = ({ className, description, image, name, onAddProduct, ...oth
     />
     <div className="ProductCard-name">{name}</div>
     <div className="ProductCard-description">{description}</div>
-    <Button
-      className="ProductCard-button"
-      onClick={onAddProduct}
-    >
-      +
-    </Button>
+    <div className="ProductCard-price">Price: <b>${unitPrice}</b></div>
+    <div className="ProductCard-stock"><b>{unitsInStock}</b> in stock</div>
+    <div className="ProductCard-bottom">
+      <Button
+        className="ProductCard-button"
+        onClick={onAddProduct}
+      >
+        +
+      </Button>
+    </div>
   </div>
 );
 
@@ -31,6 +46,8 @@ ProductCard.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string,
   onAddProduct: PropTypes.func,
+  unitPrice: PropTypes.number,
+  unitsInStock: PropTypes.number,
 };
 
 ProductCard.defaultProps = {
@@ -39,6 +56,8 @@ ProductCard.defaultProps = {
   image: '',
   name: '',
   onAddProduct: () => {},
+  unitPrice: 0,
+  unitsInStock: 0,
 };
 
-export default ProductCard;
+export default withProduct(ProductCard);

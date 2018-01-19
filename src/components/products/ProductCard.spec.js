@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import ProductCard from './ProductCard';
+import { ProductCard } from './ProductCard';
 
 describe('<ProductCard />', () => {
   it('should render correctly', () => {
@@ -13,6 +13,9 @@ describe('<ProductCard />', () => {
             description="Product name sample"
             image="http://lorempixel.com/400/200/technics/"
             name="Product name sample"
+            onAddProduct={() => {}}
+            unitPrice={29.5}
+            unitsInStock={2}
           />
         )
         .toJSON();

@@ -19,11 +19,32 @@ exports[`<ProductCard /> should render correctly 1`] = `
   >
     Product name sample
   </div>
-  <button
-    className="ProductCard-button Button"
-    onClick={[Function]}
+  <div
+    className="ProductCard-price"
   >
-    +
-  </button>
+    Price: 
+    <b>
+      $
+      29.5
+    </b>
+  </div>
+  <div
+    className="ProductCard-stock"
+  >
+    <b>
+      2
+    </b>
+     in stock
+  </div>
+  <div
+    className="ProductCard-bottom"
+  >
+    <button
+      className="ProductCard-button Button"
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
 </div>
 `;

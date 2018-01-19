@@ -21,16 +21,30 @@
   width: calc(100% - 12px);
   margin: 6px;
   font-size: 13px;
-  margin-bottom: 40px;
 }
 
-.ProductCard-button {
-  padding: 1px 4px;
-  border-radius: 50%;
+.ProductCard-price {
+  width: calc(100% - 12px);
+  margin: 6px;
+  font-size: 13px;
+}
+
+.ProductCard-stock {
+  width: calc(100% - 12px);
+  margin: 6px;
+  font-size: 13px;
+}
+
+.ProductCard-bottom {
   position: absolute;
   right: 6px;
   bottom: 6px;
+}
+
+.ProductCard-button {
   background-color: #FF6D3E;
+  padding: 1px 4px;
+  border-radius: 50%;
   color: white;
   cursor: pointer;
 }
