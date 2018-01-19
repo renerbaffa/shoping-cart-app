@@ -12,15 +12,16 @@ import './ProductsList.css';
 export const ProductsList = ({ currentView, productIds }) => (
   <div>
     <div className="ProductsList-container">
-      {productIds.map(productId =>
+      {productIds.map((productId, index) =>
         currentView === GRID ?
           <ProductCard
-            productId={productId}
             key={`product-${GRID}-${productId}`}
+            productId={productId}
           /> :
           <ProductItem
-            productId={productId}
+            index={index}
             key={`product-${LIST}-${productId}`}
+            productId={productId}
           />
       )}
     </div>

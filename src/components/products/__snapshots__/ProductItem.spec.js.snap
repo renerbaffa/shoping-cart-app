@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductItem /> should render correctly 1`] = `
+<div
+  className="className ProductItem-container"
+>
+  <img
+    alt="Product Name"
+    className="ProductItem-image"
+    src="image"
+  />
+  <div
+    className="ProductItem-description-container"
+  >
+    <div
+      className="ProductItem-name"
+    >
+      Product Name
+    </div>
+    <div
+      className="ProductItem-description"
+    >
+      description
+    </div>
+  </div>
+  <div
+    className="ProductItem-description-container2"
+  >
+    <div>
+      Price: 
+      <b>
+        $
+        29.3
+      </b>
+    </div>
+    <div>
+      <b>
+        12
+      </b>
+       in stock
+    </div>
+  </div>
+  <div
+    className="ProductItem-bottom"
+  >
+    <button
+      className="ProductItem-button Button"
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+</div>
+`;
