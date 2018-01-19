@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Menu /> should show spinner correctly 1`] = `
+<div
+  className="Menu-container"
+>
+  <div
+    className="limited-width gray-background space-between Menu-height"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "lightgray",
+          "textDecoration": "none",
+        }
+      }
+    >
+      <div
+        className="MenuItem-container"
+      >
+        Home
+      </div>
+    </a>
+    <div
+      className="MenuItem-container"
+    >
+      Top-5 Products
+    </div>
+    <a
+      href="my-cart"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "lightgray",
+          "textDecoration": "none",
+        }
+      }
+    >
+      <div>
+        <div
+          className="MenuItem-container Menu-cart"
+        >
+          Your Cart
+        </div>
+        <div
+          className="ProductBadge-container"
+        >
+          5
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+`;

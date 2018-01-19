@@ -19,7 +19,7 @@ npm test -- --converage
 - [X] Switch between list view and grid view
 - [X] Search product (from both views)
 - [  ] Add product to cart
-- [  ] Navigate between pages
+- [X] Navigate between pages
 - [  ] View the products in the cart
 - [  ] Manage quantity of each product on cart
 - [  ] Calculates the total price
