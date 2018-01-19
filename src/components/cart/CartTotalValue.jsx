@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './CartTotalValue.css';
 
@@ -20,4 +21,15 @@ CartTotalValue.defaultProps = {
   total: 0,
 };
 
-export default CartTotalValue;
+export function mapStateToProps({ cart }) {
+  const total = cart.ids.reduce(((accumulator, productId) => {
+    const product = cart.content[productId];
+    return (accumulator + (product.quantity * product.unitPrice));
+  }), 0);
+
+  return { total };
+}
+
+export default connect(
+  mapStateToProps,
+)(CartTotalValue);
