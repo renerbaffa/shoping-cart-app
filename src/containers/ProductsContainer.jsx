@@ -27,7 +27,7 @@ export class ProductsContainer extends Component {
 
   state = {
     currentView: GRID,
-    searchText: '',
+    filterText: '',
   };
   
   componentDidMount() {
@@ -37,11 +37,11 @@ export class ProductsContainer extends Component {
   handleSwitchView = newView =>
     this.setState({ currentView: newView });
 
-  handleSearchTextChange = event =>
-    this.setState({ searchText: event.target.value });
+  onFilter = filterText =>
+    this.setState({ filterText });
 
   render() {
-    const { currentView, searchText } = this.state;
+    const { currentView, filterText } = this.state;
     const { isLoading } = this.props;
 
     return (
@@ -50,8 +50,7 @@ export class ProductsContainer extends Component {
         <div className={cx('limited-width', 'ProductsContainer-border')}>
           <div className="space-between">
             <SearchForm
-              onSearchTextChange={this.handleSearchTextChange}
-              searchText={searchText}
+              onFilter={this.onFilter}
             />
             <SwitchViewOptions
               currentView={currentView}
@@ -60,6 +59,7 @@ export class ProductsContainer extends Component {
           </div>
           <div className="ProductsContainer-content">
             <ProductsList
+              filterText={filterText}
               currentView={currentView}
             />
           </div>

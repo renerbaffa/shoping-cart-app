@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Input from '../shared/Input';
@@ -6,31 +6,47 @@ import Button from '../shared/Button';
 
 import './SearchForm.css';
 
-const SearchForm = ({ onSearchTextChange, searchText, ...other }) => (
-  <div {...other}>
-    <form className="SearchForm-form">
-      <Input
-        className="SearchForm-input"
-        onChange={onSearchTextChange}
-        placeholder="Search..."
-        type="text"
-        value={searchText}
-      />
-      <Button className="SearchForm-button">
-        Search
-      </Button>
-    </form>
-  </div>
-);
+class SearchForm extends Component {
+  static propTypes = {
+    onFilter: PropTypes.func,
+  };
 
-SearchForm.propTypes = {
-  onSearchTextChange: PropTypes.func,
-  searchText: PropTypes.string,
-};
+  static defaultProps = {
+    onFilter: () => {},
+  };
 
-SearchForm.defaultProps = {
-  onSearchTextChange: () => {},
-  searchText: '',
-};
+  state = {
+    searchText: '',
+  }
+
+  handleSearchTextChange = event =>
+    this.setState({ searchText: event.target.value });
+
+  handleFilter = () => this.props.onFilter(this.state.searchText);
+
+  render() {
+    const { searchText } = this.state;
+
+    return (
+      <div>
+        <form className="SearchForm-form">
+          <Input
+            className="SearchForm-input"
+            onChange={this.handleSearchTextChange}
+            placeholder="Search..."
+            type="text"
+            value={searchText}
+          />
+          <Button
+            className="SearchForm-button"
+            onClick={this.handleFilter}
+          >
+            Search
+          </Button>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default SearchForm;

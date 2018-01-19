@@ -48,13 +48,11 @@ describe('<ProductsContainer />', () => {
     expect(wrapper.state().currentView).toBe(LIST);
   });
 
-  it('should update state when text changes', () => {
+  it('should update filter state when clicking on Search button', () => {
     const newText = 'New text';
-    expect(wrapper.state().searchText).toBe('');
-    wrapper.find(SearchForm).props().onSearchTextChange({
-      target: { value: newText },
-    });
-    expect(wrapper.state().searchText).toBe(newText);
+    expect(wrapper.state().filterText).toBe('');
+    wrapper.find(SearchForm).props().onFilter(newText);
+    expect(wrapper.state().filterText).toBe(newText);
   });
 
   describe('on component connect to redux isLoading flag', () => {

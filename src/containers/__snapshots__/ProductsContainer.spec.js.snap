@@ -23,6 +23,7 @@ exports[`<ProductsContainer /> should render correctly 1`] = `
           />
           <button
             className="SearchForm-button Button"
+            onClick={[Function]}
           >
             Search
           </button>
