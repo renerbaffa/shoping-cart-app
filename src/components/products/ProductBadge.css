@@ -1,0 +1,9 @@
+.ProductBadge-container {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  background-color: #FF6D3E;
+  padding: 0px 7px;
+  border-radius: 41%;
+  color: white;
+}

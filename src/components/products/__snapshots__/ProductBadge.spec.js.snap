@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductBadge /> should render 99+ when quantity is grater than 999 1`] = `
+<div
+  className="ProductBadge-container"
+>
+  99+
+</div>
+`;
+
+exports[`<ProductBadge /> should render correctly 1`] = `
+<div
+  className="ProductBadge-container"
+>
+  99
+</div>
+`;
