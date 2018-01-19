@@ -53,7 +53,7 @@ ProductItem.propTypes = {
   className: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  index: PropTypes.string,
+  index: PropTypes.number,
   name: PropTypes.string,
   onAddProduct: PropTypes.func,
   unitPrice: PropTypes.number,
