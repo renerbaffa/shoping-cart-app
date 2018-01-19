@@ -30,12 +30,16 @@ export const ProductCard = ({
     <div className="ProductCard-price">Price: <b>${unitPrice}</b></div>
     <div className="ProductCard-stock"><b>{unitsInStock}</b> in stock</div>
     <div className="ProductCard-bottom">
-      <Button
-        className="ProductCard-button"
-        onClick={onAddProduct}
-      >
-        +
-      </Button>
+      {
+        unitsInStock > 0 ?
+          <Button
+            className="ProductCard-button"
+            onClick={onAddProduct}
+          >
+            +
+          </Button> :
+          null
+      }
     </div>
   </div>
 );

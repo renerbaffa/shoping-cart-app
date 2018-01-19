@@ -39,12 +39,16 @@ export const ProductItem = ({
       <div><b>{unitsInStock}</b> in stock</div>
     </div>
     <div className="ProductItem-bottom">
-      <Button
-        className="ProductItem-button"
-        onClick={onAddProduct}
-      >
-        +
-      </Button>
+      {
+        unitsInStock > 0 ?
+            <Button
+              className="ProductItem-button"
+              onClick={onAddProduct}
+            >
+              +
+            </Button> :
+          null
+        }
     </div>
   </div>
 );
