@@ -63,8 +63,8 @@ projects: {
 }
 ```
 
-### More details
+### Additional details
 - `communication` redux state were created in order to store loading flags. Those flags are retrieved from meta tag inserted in the action payload (see `reducers/communication`).
 - `sources` are the files responsible for request information from backend, decoupling the request code from the actions and components.
 - `normalizers` are the files responsible for get raw data and convert it according to the pattern adopted for the whole project
-- `adapter` concept were applied for basic components (see all components in `components/shared` folder.
+- `adapter` concept were applied for basic components (see all components in `components/shared` folder).

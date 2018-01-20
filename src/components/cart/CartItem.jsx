@@ -4,6 +4,8 @@ import cx from 'classnames';
 
 import withProduct from '../../HOCs/withProduct';
 
+import QuantityController from '../cart/QuantityController';
+
 import Image from '../shared/Image';
 
 import './CartItem.css';
@@ -16,6 +18,7 @@ export const CartItem = ({
   isLastItem,
   name,
   onAddProduct,
+  onRemoveProduct,
   quantity,
   unitPrice,
   unitsInStock,
@@ -36,7 +39,15 @@ export const CartItem = ({
     />
     <div className="CartItem-name">{name}</div>
     <div className="CartItem-price">Price: <b>${unitPrice}</b></div>
-    <div className="CartItem-quantity">Quantity: <b>{quantity}</b></div>
+    <div className="CartItem-quantity">
+      <QuantityController
+        min={0}
+        max={quantity + unitsInStock}
+        quantity={quantity}
+        onAddItem={onAddProduct}
+        onRemoveItem={onRemoveProduct}
+      />
+    </div>
     <div className="CartItem-stock">
       <b style={{ paddingRight: 3 }}>{unitsInStock}</b> in stock
     </div>
@@ -55,6 +66,7 @@ CartItem.propTypes = {
   isLastItem: PropTypes.bool,
   name: PropTypes.string,
   onAddProduct: PropTypes.func,
+  onRemoveProduct: PropTypes.func,
   quantity: PropTypes.number,
   unitPrice: PropTypes.number,
   unitsInStock: PropTypes.number,
@@ -68,6 +80,7 @@ CartItem.defaultProps = {
   isLastItem: false,
   name: '',
   onAddProduct: () => {},
+  onRemoveProduct: () => {},
   quantity: 0,
   unitPrice: 0,
   unitsInStock: 0,

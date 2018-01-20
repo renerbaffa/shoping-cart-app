@@ -2,17 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { addProductToCart } from '../actions/cartActions';
+import {
+  addProductToCart,
+  removeProductFromCart,
+} from '../actions/cartActions';
 
 function withProduct(WrappedComponent) {
-  const WithProduct = ({ product, onAddProduct, ...other }) => {
+  const WithProduct = ({
+    product,
+    onAddProduct,
+    onRemoveProduct,
+    ...other,
+  }) => {
     const handleAddProduct = () =>
       onAddProduct(product.productID);
+
+    const handleRemoveProduct = () =>
+      onRemoveProduct(product.productID);
 
     return (
       <WrappedComponent
         {...product}
         onAddProduct={handleAddProduct}
+        onRemoveProduct={handleRemoveProduct}
         {...other}
       />
     );
@@ -28,12 +40,14 @@ function withProduct(WrappedComponent) {
       unitsInStock: PropTypes.number,
     }),
     onAddProduct: PropTypes.func,
+    onRemoveProduct: PropTypes.func,
   }
 
   WithProduct.defaultProps = {
     isInCart: false,
     product: {},
     onAddProduct: () => {},
+    onRemoveProduct: () => {},
   }
 
   return connect(
@@ -41,13 +55,14 @@ function withProduct(WrappedComponent) {
       let product = products.content[productId];
 
       if (isInCart) {
-        product = cart.content[productId];
+        product.quantity = cart.content[productId].quantity;
       }
 
       return { product };
     },
     {
       onAddProduct: addProductToCart,
+      onRemoveProduct: removeProductFromCart,
     }
   )(WithProduct);
 }

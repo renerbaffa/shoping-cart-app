@@ -44,3 +44,9 @@ export function addProductToCart(productId) {
     );
   }
 }
+
+export function removeProductFromCart(productId) {
+  return (dispatch, getState) => {
+    
+  }
+}

@@ -26,10 +26,36 @@ exports[`<CartItem /> should render correctly 1`] = `
   <div
     className="CartItem-quantity"
   >
-    Quantity: 
-    <b>
-      3
-    </b>
+    <div
+      className="QuantityController-container"
+    >
+      <div>
+        <b>
+          Quantity
+        </b>
+      </div>
+      <div
+        className="QuantityController-buttons-container"
+      >
+        <button
+          className="QuantityController-less-button Button"
+          disabled={false}
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <div>
+          3
+        </div>
+        <button
+          className="QuantityController-more-button Button"
+          disabled={false}
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+    </div>
   </div>
   <div
     className="CartItem-stock"
