@@ -9,7 +9,7 @@ npm start
 
 To check test coverage:
 ```
-npm test -- --converage
+npm test -- --coverage
 ```
 
 ## Features developed
