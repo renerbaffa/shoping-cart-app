@@ -71,7 +71,10 @@ export function removeFromCart(product) {
 
 export function removeProductFromCart(productId) {
   return (dispatch, getState) => {
-    const itemInCart = getState().cart.content[productId];
+    const itemInCart = {
+      ...getState().products.content[productId],
+      quantity: getState().cart.content[productId].quantity,
+    }
 
     dispatch(
       removeFromCart(
