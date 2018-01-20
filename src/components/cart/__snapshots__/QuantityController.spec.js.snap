@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QuantityController /> should render correctly 1`] = `
+<div
+  className="QuantityController-container"
+>
+  <div>
+    <b>
+      Quantity
+    </b>
+  </div>
+  <div
+    className="QuantityController-buttons-container"
+  >
+    <button
+      className="QuantityController-less-button Button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      -
+    </button>
+    <div>
+      12
+    </div>
+    <button
+      className="QuantityController-more-button Button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+</div>
+`;
