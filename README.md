@@ -41,7 +41,7 @@ npm|yarn test -- --converage
 - `react-image-fallback` to handle error on loading image
 - The resulting webpage has considerable good responsive behavior (it will perfectly work on devices. Although it is not looking very nice)
 - `withProduct` Higher Order Component was created in order to inject some product information into wrapped component and for reusing component logic.
-- Total time spent: 16 hours 30 minutes (coding: ~15 hours, planning: ~1 hour 30 minutes)
+- Total time spent: 16 hours 30 minutes (planning: ~1 hour 30 minutes, coding: ~6 hours, documenting: ~1 hour, testing: ~8 hours)
 
 ### Automated tests
 - Every single file created in the project has its own testing file which can be found in the same folder level as the source code. Two main extensions were used:
