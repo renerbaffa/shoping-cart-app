@@ -1,0 +1,6 @@
+.Image-loader {
+  position: relative;
+  margin: 6px 0px;
+  display: flex;
+  justify-content: center;
+}
