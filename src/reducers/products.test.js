@@ -1,8 +1,12 @@
 import { UPDATE_PRODUCTS } from '../actions/productsActions';
-import { ADD_TO_CART } from '../actions/cartActions';
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cartActions';
 import convertToIdsAndContent from '../normalizers/productsNormalize';
 
-import products, { INITIAL_STATE, removeItemFromStock } from './products';
+import products, {
+  addItemtoStock,
+  INITIAL_STATE,
+  removeItemFromStock,
+} from './products';
 
 import PRODUCTS from '../mocks/Products';
 
@@ -68,6 +72,66 @@ describe('prodcts reducer', () => {
           ADD_TO_CART_ACTION,
         ).content[PRODUCTS[1].productID].unitsInStock,
       ).toBe(PRODUCTS[1].unitsInStock - 1);
+    });
+  });
+
+  describe('addItemtoStock', () => {
+    let product;
+    let id;
+
+    beforeEach(() => {
+      product = {
+        ...PRODUCTS[1],
+        quantity: 4,
+      };
+      id = product.productID;
+    });
+
+    it('should add back product in stock', () => {
+      expect(
+        addItemtoStock(
+          NORMALIZED_PRODUCTS,
+          {
+            id,
+            data: product,
+          },
+        ).content[id].unitsInStock
+      ).toBe(product.unitsInStock + 1);
+    });
+
+    describe('when new value is graten than quantity + current unitsInStock', () => {
+      it('should add back the item in stock', () => {
+        product.quantity = 0;
+
+        expect(
+          addItemtoStock(
+            NORMALIZED_PRODUCTS,
+            {
+              id,
+              data: product,
+            },
+          ).content[id].unitsInStock
+        ).toBe(product.unitsInStock);
+      });
+    });
+  });
+
+  describe('given REMOVE_FROM_CART', () => {
+    const REMOVE_FROM_CART_ACTION = {
+      type: REMOVE_FROM_CART,
+      payload: {
+        id: PRODUCTS[1].productID,
+        data: PRODUCTS[1],
+      },
+    };
+
+    it('should update quantity of products in stock', () => {
+      expect(
+        products(
+          NORMALIZED_PRODUCTS,
+          REMOVE_FROM_CART_ACTION,
+        ).content[PRODUCTS[1].productID].unitsInStock,
+      ).toBe(PRODUCTS[1].unitsInStock + 1);
     });
   });
 });
