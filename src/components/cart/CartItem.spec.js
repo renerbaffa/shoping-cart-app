@@ -30,5 +30,6 @@ describe('<CartItem />', () => {
 
   it('should reach 100% of coverage', () => {
     CartItem.defaultProps.onAddProduct();
+    CartItem.defaultProps.onRemoveProduct();
   });
 });

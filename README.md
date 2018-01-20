@@ -9,7 +9,7 @@ npm start
 
 To check test coverage:
 ```
-npm test -- --coverage
+npm test -- --converage
 ```
 
 ## Features developed
@@ -35,21 +35,27 @@ npm test -- --coverage
 - `redux-devtools-extension` configured to run only on dev environment
 - ES6 syntax
 - Commits have meaningful titles
-	- Use commits history in order to check how was the development process
+	- Use commits history in oder to check how was the development process
 - `react-image-fallback` to handle error on loading image
 - The resulting webpage has considerable good responsive behavior (it will perfectly work on devices. Although it is not looking very nice)
-- As a automated tests admirator I developed the whole app using TDD concepts (cycle: writing tests, see they fail, code, see they pass and refactoring). I figured out that I spent more time testing than coding, in fact)
 - `withProduct` Higher Order Component was created in order to inject some product information into wrapped component and for reusing component logic.
-- Total time spent: 16 hours 30 minutes (planning: ~1 hour 30 minutes, coding: ~6 hours, documenting: ~1 hour, testing: ~8 hours)
+- Total time spent: 16 hours 30 minutes (coding: ~15 hours, planning: ~1 hour 30 minutes)
 
 ### Automated tests
 - Every single file created in the project has its own testing file which can be found in the same folder level as the source code. Two main extensions were used:
 	1.  `.spec` files test React Components. In order to guarantee the resulting HTML structure of components the tests were made through snapshots and they do not have logic.
-	2.  `.test` files test `actions`, `reducers`, `sources` and `utils` files. As they have logic the tests were made to guarantee that their behavior did not change  (same for smart components or containers).
+	2.  `.test` files test `actions`, `reducers`, `sources` and `utils` files. As they have logic the tests were made ti guarantee that their behavior did not change  (same for smart components or containers).
 - Frameworks used for testing:
 	1. `enzyme` to render and manipulate rendered React components
 	2. `react-test-renderer` to generate snapshots of dumb/stateless components
 	3. `axios-mock-adapter` to mock ans simulate requests and HTTP responses
+- Current coverage:
+	- **77.95% Statements 198/254**
+	- **72% Branches 72/100**
+	- **77.08% Functions 74/96**
+	- **85.65% Lines 197/230**
+- Files missing test: `index.js`, `registerServiceWorker.js`, `reducers/index` and `withProduct` (the only relevant among them).
+
 
 ### Data storage
 - Local data was stored in the component's state level
