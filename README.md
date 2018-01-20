@@ -2,14 +2,16 @@
 Technical assessment: Shopping cart web app that allows user to manage the chart and see the list of products.
 
 ## Running the project
+You can use either npm or yarn to run the project and the tests
+
 ```
-npm install
-npm start
+npm|yarn install
+npm|yarn start
 ```
 
 To check test coverage:
 ```
-npm test -- --converage
+npm|yarn test -- --converage
 ```
 
 ## Features developed
@@ -50,10 +52,10 @@ npm test -- --converage
 	2. `react-test-renderer` to generate snapshots of dumb/stateless components
 	3. `axios-mock-adapter` to mock ans simulate requests and HTTP responses
 - Current coverage:
-	- **77.95% Statements 198/254**
-	- **72% Branches 72/100**
-	- **77.08% Functions 74/96**
-	- **85.65% Lines 197/230**
+	- **77.65%** Statements `198/255`
+	- **72%** Branches `72/100`
+	- **77.08%** Functions `74/96`
+	- **85.65%** Lines `197/230`
 - Files missing test: `index.js`, `registerServiceWorker.js`, `reducers/index` and `withProduct` (the only relevant among them).
 
 
