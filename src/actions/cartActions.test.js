@@ -3,9 +3,13 @@ import thunk from 'redux-thunk';
 
 import {
   ADD_TO_CART,
-  addToCart,
   addProductToCart,
+  addToCart,
+  decreaseProductQuantity,
   INITIAL_STATE,
+  REMOVE_FROM_CART,
+  removeFromCart,
+  removeProductFromCart,
   sumProductQuantity,
 } from './cartActions';
 
@@ -90,6 +94,64 @@ describe('cartActions', () => {
           data: {
             ...ITEMIZED_CART.content[product.productID],
             quantity: 5,
+          }
+        }
+      });
+    });
+  });
+
+  describe('decreaseProductQuantity', () => {
+    let product;
+
+    beforeEach(() => {
+      product = {
+        ...PRODUCTS[0],
+        quantity: 3,
+      };
+    });
+
+    it('should decrease product quantity by 1', () => {
+      expect(decreaseProductQuantity(product).quantity).toBe(product.quantity - 1);
+    });
+    
+    it('should not change quantity when it is 0', () => {
+      product.quantity = 0;
+      expect(decreaseProductQuantity(product).quantity).toBe(0);
+    });
+  });
+
+  describe('removeFromCart', () => {
+    it('should return correct payload', () => {
+      const product = {
+        ...PRODUCTS[0],
+        quantity: 3,
+      };
+      expect(removeFromCart(product)).toEqual({
+        type: REMOVE_FROM_CART,
+        payload: {
+          id: product.productID,
+          data: product,
+        },
+      });
+    });
+  });
+
+  describe('removeProductFromCart', () => {
+    it('should dispatch removeFromCart action removing product from cart', () => {
+      const product = ITEMIZED_CART.content[ITEMIZED_CART.ids[1]];
+      const store = mockStore({
+        ...INITIAL_STORE,
+        cart: ITEMIZED_CART,
+      });
+  
+      store.dispatch(removeProductFromCart(product.productID));
+      expect(store.getActions()[0]).toEqual({
+        type: REMOVE_FROM_CART,
+        payload: {
+          id: product.productID,
+          data: {
+            ...product,
+            quantity: product.quantity - 1,
           }
         }
       });
