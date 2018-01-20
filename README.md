@@ -35,7 +35,7 @@ npm test -- --coverage
 - `redux-devtools-extension` configured to run only on dev environment
 - ES6 syntax
 - Commits have meaningful titles
-	- Use commits history in oder to check how was the development process
+	- Use commits history in order to check how was the development process
 - `react-image-fallback` to handle error on loading image
 - The resulting webpage has considerable good responsive behavior (it will perfectly work on devices. Although it is not looking very nice)
 - As a automated tests admirator I developed the whole app using TDD concepts (cycle: writing tests, see they fail, code, see they pass and refactoring). I figured out that I spent more time testing than coding, in fact)
@@ -45,7 +45,7 @@ npm test -- --coverage
 ### Automated tests
 - Every single file created in the project has its own testing file which can be found in the same folder level as the source code. Two main extensions were used:
 	1.  `.spec` files test React Components. In order to guarantee the resulting HTML structure of components the tests were made through snapshots and they do not have logic.
-	2.  `.test` files test `actions`, `reducers`, `sources` and `utils` files. As they have logic the tests were made ti guarantee that their behavior did not change  (same for smart components or containers).
+	2.  `.test` files test `actions`, `reducers`, `sources` and `utils` files. As they have logic the tests were made to guarantee that their behavior did not change  (same for smart components or containers).
 - Frameworks used for testing:
 	1. `enzyme` to render and manipulate rendered React components
 	2. `react-test-renderer` to generate snapshots of dumb/stateless components
