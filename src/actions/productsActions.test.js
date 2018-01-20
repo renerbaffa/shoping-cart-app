@@ -9,6 +9,7 @@ import {
   PRODUCTS_LOADING,
   setAreProductsLoading,
   fetchProducts,
+  shouldFetch,
   UPDATE_PRODUCTS,
   updateProducts,
 } from './productsActions';
@@ -58,46 +59,66 @@ describe('productsAction', () => {
     });
   });
   
+  describe('shouldFetch', () => {
+    it('should return true when no products are in store', () => {
+      expect(shouldFetch({ ids: [] })).toBeTruthy();
+    });
+
+    it('should return false when store has products already', () => {
+      expect(shouldFetch({ ids: [1] })).toBeFalsy();
+    });
+  });
+
   describe('fetchProducts', () => {
     let mock;
+    let store;
 
     beforeEach(() => {
       mock = new MockAdapter(axios);
     });
 
-    it('should dispatch product action RETRIEVING at the first moment', () => {
-      const store = mockStore({});
-      LOADING_ACTION.meta.isLoading = RETRIEVING;
+    describe('when store does not have products', () => {
+      beforeEach(() => {
+        store = mockStore({ products: { ids: [], content: {} } });
+      });
 
-      mock.onGet(FETCH_PRODUCTS_URL)
-        .reply(200, { products: PRODUCTS });
-  
-      return store.dispatch(fetchProducts()).then(() => {
-        expect(store.getActions()[0]).toEqual(LOADING_ACTION);
+      it('should dispatch product action RETRIEVING at the first moment', () => {
+        LOADING_ACTION.meta.isLoading = RETRIEVING;
+
+        mock.onGet(FETCH_PRODUCTS_URL)
+          .reply(200, { products: PRODUCTS });
+    
+        return store.dispatch(fetchProducts()).then(() => {
+          expect(store.getActions()[0]).toEqual(LOADING_ACTION);
+        });
+      });
+
+      it('should dispatch product action RETRIEVED on fetch success', () => {
+        mock.onGet(FETCH_PRODUCTS_URL)
+          .reply(200, { products: PRODUCTS });
+    
+        return store.dispatch(fetchProducts()).then(() => {
+          expect(store.getActions()[store.getActions().length - 1].meta.isLoading)
+            .toEqual(RETRIEVED);
+        });
+      });
+
+      it('should dispatch product action FAILED when backend returns error', () => {
+        LOADING_ACTION.meta.isLoading = FAILED;
+
+        mock.onGet(FETCH_PRODUCTS_URL).reply(404);
+    
+        return store.dispatch(fetchProducts()).then(() => {
+          expect(store.getActions()[store.getActions().length - 1])
+            .toEqual(LOADING_ACTION);
+        });
       });
     });
 
-    it('should dispatch product action RETRIEVED on fetch success', () => {
-      const store = mockStore({});
-
-      mock.onGet(FETCH_PRODUCTS_URL)
-        .reply(200, { products: PRODUCTS });
-  
-      return store.dispatch(fetchProducts()).then(() => {
-        expect(store.getActions()[store.getActions().length - 1].meta.isLoading)
-          .toEqual(RETRIEVED);
-      });
-    });
-
-    it('should dispatch product action FAILED when backend returns error', () => {
-      const store = mockStore({});
-      LOADING_ACTION.meta.isLoading = FAILED;
-
-      mock.onGet(FETCH_PRODUCTS_URL).reply(404);
-  
-      return store.dispatch(fetchProducts()).then(() => {
-        expect(store.getActions()[store.getActions().length - 1])
-          .toEqual(LOADING_ACTION);
+    describe('when store has products already', () => {
+      it('should do nothing', () => {
+        store = mockStore({ products: { ids: [1], content: {} } });
+        store.dispatch(fetchProducts());
       });
     });
   });

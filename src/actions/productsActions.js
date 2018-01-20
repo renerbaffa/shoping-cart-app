@@ -26,18 +26,24 @@ export function updateProducts(products) {
   };
 }
 
+export function shouldFetch(products) {
+  return products.ids.length === 0;
+}
+
 export function fetchProducts() {
-  return async (dispatch) => {
-    try {
-      dispatch(setAreProductsLoading(RETRIEVING));
-      const response = await ProductsSource.fetchProducts();
-      if (response.hasError) {
+  return async (dispatch, getState) => {
+    if (shouldFetch(getState().products)) {
+      try {
+        dispatch(setAreProductsLoading(RETRIEVING));
+        const response = await ProductsSource.fetchProducts();
+        if (response.hasError) {
+          dispatch(setAreProductsLoading(FAILED));
+        } else {
+          dispatch(updateProducts(response.products));
+        }
+      } catch (err) {
         dispatch(setAreProductsLoading(FAILED));
-      } else {
-        dispatch(updateProducts(response.products));
       }
-    } catch (err) {
-      dispatch(setAreProductsLoading(FAILED));
     }
   };
 }
