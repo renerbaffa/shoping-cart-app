@@ -36,6 +36,11 @@ npm test -- --converage
 - ES6 syntax
 - Commits have meaningful titles
 	- Use commits history in oder to check how was the development process
+- `react-image-fallback` to handle error on loading image
+- The resulting webpage has considerable good responsive behavior (it will perfectly work on devices. Although it is not looking very nice)
+- As a automated tests admirator I developed the whole app using TDD concepts (cycle: writing tests, see they fail, code, see they pass and refactoring). I figured out that I spent more time testing than coding, in fact)
+- `withProduct` Higher Order Component was created in order to inject some product information into wrapped component and for reusing component logic.
+- Total time spent: 16 hours 30 minutes (planning: ~1 hour 30 minutes, coding: ~6 hours, documenting: ~1 hour, testing: ~8 hours)
 
 ### Automated tests
 - Every single file created in the project has its own testing file which can be found in the same folder level as the source code. Two main extensions were used:
@@ -68,3 +73,11 @@ projects: {
 - `sources` are the files responsible for request information from backend, decoupling the request code from the actions and components.
 - `normalizers` are the files responsible for get raw data and convert it according to the pattern adopted for the whole project
 - `adapter` concept were applied for basic components (see all components in `components/shared` folder).
+	- A good example of how the code maintenance is improved with this concept is how easy was change from `<img />` to another library (see [this commit](https://github.com/renerbaffa/shoping-cart-app/commit/99bd51de67ce2bc41c7e87cc7ddc68feea4fe5d7))
+
+### Next Steps
+If I had more time to spend developing this shop cart challenge I would consider to implement as new features:
+- Load JavaScript on demand according to the user navigation through the system
+	- Considering use [`react-loadable`](https://github.com/thejameskyle/react-loadable)
+- Considering adopt Progressive Web App (PWA) concepts
+- Define details and how to implement Top-5 Viewed products page
